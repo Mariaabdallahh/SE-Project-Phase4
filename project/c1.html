@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticket</title>
+    <link rel="stylesheet" type="text/css" href="e_tickets.css">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <div class="ticket">
+        <div class="holes-top"></div>
+        <div class="title">
+            <p class="cinema">Glimpth Presents</p>
+            <p class="movie-title">Movie Name</p>
+        </div>
+        <div class="poster">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/25240/only-god-forgives.jpg"
+                alt="Movie: Only God Forgives" />
+        </div>
+        <div class="info">
+            <table>
+                <tr>
+                    <th>Room</th>
+                    <th>class</th>
+                    <th>Seat</th>
+                    <th>Type</th>
+                </tr>
+                <tr>
+                    <td class="bigger">18</td>
+                    <td class="bigger">VIP</td>
+                    <td class="bigger">24</td>
+                    <td class="bigger">Romantic</td>
+                </tr>
+
+                <tr>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+                <tr>
+                    <td>12.00$ </td>
+                    <td>4/13/21</td>
+                    <td>19:30</td>
+                </tr>
+            </table>
+        </div>
+        <!-- <div style="background-color: white;"> -->
+        <div class="holes-lower"></div>
+        <div class="serial">
+            <table id="barcode" class="barcode"></table>
+            <div id="unique-number" class="unique-number"></div>
+        </div>
+    </div>
+</body>
+<script>
+    // Function to generate a booking ID based on the month and user's account number
+async function generateBookingID() {
+    
+    const currentDate = new Date();
+    const month = currentDate.getMonth() + 1; // Month is zero-based, so we add 1
+    // Fetch the user's account number from the database (replace 'fetchAccountNumber' with your actual function)
+    const accountNumber = await fetchAccountNumber(); // Assuming this function fetches the account number asynchronously
+    const bookingID = month.toString().padStart(2, '0') + accountNumber;
+    return bookingID;
+   
+}
+
+
+function fetchAccountNumber() {
+   
+   
+    // Assuming this function returns a Promise that resolves with the user's account number
+    return new Promise(resolve => {
+        // Simulating asynchronous fetch
+        setTimeout(() => {
+            // Mock account number
+            const accountNumber = '12355555577711025415'; // Replace this with the actual account number fetched from the database
+            resolve(accountNumber);
+        }, 1000); // Simulate 1 second delay
+    });
+}
+
+// Function to generate the HTML for the barcode
+function generateBarcodeHTML(hash) {
+    var table = document.getElementById('barcode');
+    table.innerHTML = ''; // Clear previous barcode
+
+    var row = document.createElement('tr');
+    for (var i = 0; i < hash.length; i++) {
+        var cell = document.createElement('td');
+        cell.style.backgroundColor = parseInt(hash[i], 16) % 2 === 0 ? 'black' : 'white';
+        row.appendChild(cell);
+    }
+    table.appendChild(row);
+}
+
+// Generate a new barcode with the booking ID when the page loads
+window.onload = async function() {
+    const bookingID = await generateBookingID();
+    generateBarcodeHTML(bookingID);
+    document.getElementById('unique-number').textContent = bookingID;
+};
+</script>
+
+</html>
+

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket Booking</title>
+  <link rel="stylesheet" type="text/css" href="style-starter.css">
+  <link rel="stylesheet" href="https://npmcdn.com/flickity@2/dist/flickity.css">
+  <link rel="stylesheet" type="text/css" href="progress.css">
+
+  <link rel="stylesheet" type="text/css" href="ticket-booking.css">
+
+  <!-- ..............For progress-bar............... -->
+  <link rel="stylesheet" type="text/css" href="e_ticket.css">
+
+  <link rel="stylesheet" type="text/css" href="payment.css" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700" rel="stylesheet">
+</head>
+
+<body>
+  <header id="site-header" class="w3l-header fixed-top">
+
+    <!--/nav-->
+    <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+      <div class="container">
+        <div class="navbar-brand"><h1><a class="navbar-brand" href="#">Glimpth</a></h1></div>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+
+       
+        <!-- toggle switch for light and dark theme -->
+       <h1><a class="navbar-brand" style="color: var(--theme-yellow);"> Ticket and Seat Reservation</a></h1>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container" id="progress-container-id">
+    <div class="row">
+      <div class="col">
+        <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+          <form id="form">
+         
+            
+            <br>
+            <fieldset>
+              <div id="screen-select-div">
+                <div class="STS"><h2>Show time Selection</h2></div>
+                <div class="carousel carousel-nav" 
+                data-flickity='{"contain": true, "pageDots": false }'>
+                  <div class="carousel-cell" id="1" onclick="myFunction(1)">
+                    <div class="date-numeric">13</div>
+                    <div class="date-day">Today</div>
+                  </div>
+                  <div class="carousel-cell" id="2" onclick="myFunction(2)">
+                    <div class="date-numeric">14</div>
+                    <div class="date-day">Tomorrow</div>
+                  </div>
+                  <div class="carousel-cell" id="3" onclick="myFunction(3)">
+                    <div class="date-numeric">15</div>
+                    <div class="date-day">Monday</div>
+                  </div>
+                  <div class="carousel-cell" id="4" onclick="myFunction(4)">
+                    <div class="date-numeric">16</div>
+                    <div class="date-day">Tuesday</div>
+                  </div>
+                  <div class="carousel-cell" id="5" onclick="myFunction(5)">
+                    <div class="date-numeric">17</div>
+                    <div class="date-day">Wednesday</div>
+                  </div>
+                  <div class="carousel-cell" id="6" onclick="myFunction(6)">
+                    <div class="date-numeric">18</div>
+                    <div class="date-day">Thursday</div>
+                  </div>
+                  <div class="carousel-cell" id="7" onclick="myFunction(7)">
+                    <div class="date-numeric">19</div>
+                    <div class="date-day">Friday</div>
+                  </div>
+                </div>
+                <ul class="time-ul">
+                  <li class="time-li">
+                    <div class="screens">
+                     Room- 11
+                    </div>
+                    <div class="time-btn">
+                      <button class="screen-time" onclick="timeFunction()">
+                        1:05 PM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        4:00 PM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        9:00 PM
+                      </button>
+                    </div>
+                  </li>
+                  <li class="time-li">
+                    <div class="screens">
+                      Room- 12
+                    </div>
+                    <div class="time-btn">
+                      <button class="screen-time" onclick="timeFunction()">
+                        3:00 PM
+                      </button>
+                    </div>
+                  </li>
+                  <li class="time-li">
+                    <div class="screens">
+                      Room- 13
+                    </div>
+                    <div class="time-btn">
+                      <button class="screen-time" onclick="timeFunction()">
+                        9:05 AM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        10:00 PM
+                      </button>
+                    </div>
+                  </li>
+                  <li class="time-li">
+                    <div class="screens">
+                      Room- 14
+                    </div>
+                    <div class="time-btn">
+                      <button class="screen-time" onclick="timeFunction()">
+                        9:05 AM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        11:00 AM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        3:00 PM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        7:00 PM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        10:00 PM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        11:00 PM
+                      </button>
+                    </div>
+                  </li>
+                  <li class="time-li">
+                    <div class="screens">
+                      Room- 15
+                    </div>
+                    <div class="time-btn">
+                      <button class="screen-time" onclick="timeFunction()">
+                        9:05 AM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        12:00 PM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        1:00 PM
+                      </button>
+                      <button class="screen-time" onclick="timeFunction()">
+                        3:00 PM
+                      </button>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+              <input id="screen-next-btn" type="button" name="next-step" class="next-step" value="Continue Booking"
+                disabled />
+            </fieldset>
+            <fieldset>
+
+              <div>
+                <iframe id="seat-sel-iframe"
+                  style="  box-shadow: 0 14px 12px 0 
+                  var(--theme-border), 0 10px 50px 0 var(--theme-border); 
+                  width: 800px; height: 550px; display: block; margin-left: auto; margin-right: auto;"
+                  src="seat-selection.html"></iframe>
+              </div>
+              <br>
+              <input type="button" name="next-step" class="next-step" value="Proceed to Payment" />
+              <input type="button" name="previous-step" class="previous-step" value="Back" />
+            </fieldset>
+            <fieldset>
+              <!-- Payment Page -->
+              <div id="payment_div">
+                <div class="payment-row">
+                  <div class="col-75">
+                    <div class="payment-container">
+                      <div class="payment-row">
+                        <div class="col-50">
+                          <h3 id="payment-h3">Payment</h3>
+                          <div class="payment-row payment">
+                            <div class="col-50 payment">
+                              <label for="card" class="method card">
+                                <div class="radio-input">
+                                  <input type="radio" id="card" />
+                                  Pay RS.200.00 with credit card
+                                </div>
+                              </label>
+                            </div>
+                            <div class="col-50 payment">
+                              <label for="paypal" class="method paypal">
+      
+                                <div class="radio-input">
+                                  <input id="paypal" type="radio" checked>
+                                  Pay $30.00 with PayPal
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="payment-row">
+                            <div class="col-50">
+                              <label for="cname">Cardholder's Name</label>
+                              <input type="text" id="cname" name="cardname" placeholder="Firstname Lastname" required />
+                            </div>
+                            <div class="col-50">
+                              <label for="ccnum">Credit card number</label>
+                              <input type="text" id="ccnum" name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx"
+                                required />
+                            </div>
+                          </div>
+                          <div class="payment-row">
+                            <div class="col-50">
+                              <label for="expmonth">Exp Month</label>
+                              <input type="text" id="expmonth" name="expmonth" placeholder="September" required />
+                            </div>
+                            <div class="col-50">
+                              <div class="payment-row">
+                                <div class="col-50">
+                                  <label for="expyear">Exp Year</label>
+                                  <input type="text" id="expyear" name="expyear" placeholder="yyyy" required />
+                                </div>
+                                <div class="col-50">
+                                  <label for="cvv">CVV</label>
+                                  <input type="text" id="cvv" name="cvv" placeholder="xxx" required />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input type="button" name="next-step" class="next-step pay-btn" value="Confirm Payment" id="bookingResult" onclick="location.href='c1.html';" />
+              <input type="button" name="previous-step" class="cancel-pay-btn" value="Cancel Payment" onclick="location.href='index.html';" />
+            </fieldset>
+         
+              <input type="button" name="previous-step" class="home-page-btn" value="Browse to Home Page"
+                onclick="location.href='main.php';" />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+<script type="text/javascript" src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'>
+</script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="theme-change.js"></script>
+
+<script type="text/javascript" src="ticket-booking.js"></script>
+<script type="text/javascript" src="cscript.js"></script>
+
+</html>
